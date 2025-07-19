@@ -1,0 +1,72 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+import InformacionEstudios from "@/components/cv/InformacionEstudios.astro";
+import DownloadButton from "@/components/downloadButton.astro";
+
+---
+
+<BaseLayout title="Resume" sideBarActiveItemID="cv">
+  <div class="p-6">
+    <h2 class="text-3xl font-bold mb-2">Perfil</h2>
+    <p class="text-base text-justify">
+      Experiencia en diseño, desarrollo y mantenimiento de sistemas. Especializado en backend y bases de
+      datos, mi objetivo principal es contribuir al logro de metas estratégicas mediante el desarrollo de soluciones innovadoras, como la implementación de arquitecturas backend escalables que soporten un alto volumen de usuarios, la optimización de bases de datos para reducir tiempos de respuesta, o el diseño de herramientas internas que automatizan procesos clave, ahorrando tiempo y recursos.
+      <br><br>
+      También, cuento con experiencia en la participación y liderazgo de proyectos, utilizando metodologías ágiles como Scrum y Kanban para garantizar una gestión eficiente y adaptativa. Estas metodologías me han permitido priorizar funcionalidades clave, entregar incrementos de valor en ciclos cortos (MVP), y ajustar rápidamente el producto en función del feedback del cliente y las necesidades del negocio. Este enfoque asegura un desarrollo iterativo y colaborativo, maximizando el impacto desde las primeras etapas del proyecto.
+    </p>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Experiencia Laboral</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="2023 - Actual"
+      subtitle="Backend Software Engineer - ISP Cloud Services, Inc."
+    >
+      <ul class="list-disc list-inside">
+        <li class="text-base">Diseñar y mantener bases de datos SQL y NoSQL.</li>
+        <li class="text-base">Desarrollar API's RESTful para integración de sistemas.</li>
+        <li class="text-base">Implementar lógica de negocio en aplicaciones empresariales.</li>
+      </ul>
+    </TimeLineElement>
+    <TimeLineElement
+      title="2021-2023"
+      subtitle="Ingeniero de Software - Bancaribe, BU"
+    >
+      <ul class="list-disc list-inside">
+        <li class="text-base">Actividades de soporte técnico y mantenimiento de sistemas.</li>
+        <li class="text-base">Aplicación de controles de cambio y actualizaciones de software.</li>
+        <li class="text-base">Desarrollo de nuevas funcionalidades para aplicaciones internas.</li>
+      </ul>
+    </TimeLineElement>
+    <TimeLineElement
+      title="2020-2021"
+      subtitle="Desarrollador Web - AionDev (Proyectos)"
+    >
+      <ul class="list-disc list-inside">
+        <li class="text-base">Desarrollo de aplicaciones web utilizando tecnologías modernas.</li>
+        <li class="text-base">Colaboración en proyectos de desarrollo ágil.</li>
+      </ul>
+    </TimeLineElement>
+    <TimeLineElement
+    title="2017-2020"
+    subtitle="Analista de Desarrollo Tecnológico - SIGIS C.A."
+    >
+      <ul class="list-disc list-inside">
+        <li class="text-base">Desarrollo de aplicaciones utilizando lenguajes como Java y JavaScript.</li>
+        <li class="text-base">Realización de actualizaciones y mejoras en sistemas existentes.</li>
+        <li class="text-base">Manipulación y desarrollo de rutinas en bases de datos.</li>
+      </ul>
+    </TimeLineElement>
+    <InformacionEstudios />
+  </div>
+  <DownloadButton
+            label="Descargar CV"
+            url="/cv/Francisco_Thielen_CV.pdf"
+            downloadedFileName="Francisco_Thielen_CV.pdf"
+          />
+
+</BaseLayout>

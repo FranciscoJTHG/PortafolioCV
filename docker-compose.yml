@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portfolio_prod
+    ports:
+      - "80:80"
+    restart: always
+    networks:
+      - portfolio-net
+
+networks:
+  portfolio-net:
+    driver: bridge

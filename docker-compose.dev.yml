@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  portfolio-dev:
+    # Construye la imagen usando el Dockerfile de desarrollo
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: portfolio_dev
+
+    # Mapeo de puertos para el servidor de desarrollo de Astro
+    ports:
+      - "4321:4321"
+
+    # Monta el código fuente local, pero usa un volumen anónimo para node_modules
+    volumes:
+      # Sincroniza tu código local con /app en el contenedor
+      - .:/app
+      # PERO, mantiene la carpeta node_modules del contenedor, ignorando la local
+      # Esto evita la sobreescritura y la lentitud.
+      - /app/node_modules
+
+    # Red para comunicación
+    networks:
+      - portfolio-net
+
+networks:
+  portfolio-net:
+    driver: bridge

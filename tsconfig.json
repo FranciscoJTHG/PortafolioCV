@@ -1,0 +1,25 @@
+{
+    "extends": "astro/tsconfigs/strict",
+    "compilerOptions": {
+        // Habilita comprobación estricta de nulos
+        "strictNullChecks": true,
+        // Configuración de rutas de importación
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"],
+            "@components/*": ["src/components/*"],
+            "@layouts/*": ["src/layouts/*"],
+            "@assets/*": ["src/assets/*"]
+        },
+
+        // Configuración adicional recomendada
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true
+    },
+    "include": [
+        "src/**/*",
+        ".astro/types.d.ts"
+    ],
+    "exclude": ["dist", "node_modules"]
+}

@@ -1,0 +1,20 @@
+# Dockerfile para el entorno de DESARROLLO
+
+FROM node:20-slim
+
+# Instala pnpm globalmente
+RUN npm install -g pnpm
+
+# Establece el directorio de trabajo
+WORKDIR /app
+
+# Copia los manifiestos de dependencias e instálalas
+# Esto se cachea y solo se re-ejecuta si package.json o pnpm-lock.yaml cambian
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install
+
+# Expone el puerto de desarrollo de Astro
+EXPOSE 4321
+
+# El comando por defecto para iniciar el servidor de desarrollo
+CMD ["pnpm", "run", "dev", "--host"]
