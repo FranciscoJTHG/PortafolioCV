@@ -4,7 +4,7 @@ description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ei
 url: "#"
 pubDate: "Sep 12 2022"
 heroImage: "/post_img.webp"
-badge: "Demo badge"
+# badge: "Demo badge"
 rol: "Backend"
 # tags: ["rust","tokio"]
 ---

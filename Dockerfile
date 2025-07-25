@@ -14,6 +14,9 @@ COPY package.json pnpm-lock.yaml ./
 # Instala las dependencias
 RUN pnpm install --frozen-lockfile
 
+# Instala Chromium para Puppeteer dentro del contenedor
+RUN npx puppeteer browsers install chrome
+
 # Copia el resto del código fuente
 COPY . .
 

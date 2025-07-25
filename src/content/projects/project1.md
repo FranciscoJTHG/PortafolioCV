@@ -2,7 +2,7 @@
 title: "CreaSoft"
 description: "Una app web que utiliza inteligencia artificial para predecir el éxito potencial de una película antes de su estreno."
 url: https://github.com/FranciscoJTHG/creaSoft
-pubDate: "Sep 10 2022"
+pubDate: "Sep 10 2023"
 heroImage: "/creaSoft.png"
 rol: "Backend"
 badge: "NEW"

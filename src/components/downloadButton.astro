@@ -10,16 +10,16 @@ const classes = {
 	main: 'inline-flex items-center px-4 h-10 rounded-md shadow-sm bg-primary-600 select-none cursor-pointer',
   hover: 'hover:bg-primary-700',
   active: 'active:translate-y-px',
-  focus: 'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500', 
+  focus: 'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500',
 	badge: 'badge',
-	badgeSecondary: 'badge-secondary',
+	badgeSecondary: 'badge-primary',
 };
 
 const className = Object.values(classes).join(' ');
 
 ---
 
-<div class="text-center">
+<div class="text-center mt-10">
 	<a href={url} download={downloadedFileName} class={className}>
     <Icon name="mdi:download" class="w-5 h-5 mr-2" />
 		{label}

@@ -1,0 +1,31 @@
+---
+import HorizontalCard from "../components/HorizontalCard.astro";
+import { getCollection } from "astro:content";
+
+const projects = (await getCollection("projects")).sort(
+
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const lastProjects = projects.slice(0, 5);
+---
+
+<div>
+		<div class="text-3xl w-full font-bold mb-5 mt-10">Ultimos Proyectos Realizados</div>
+</div>
+
+{
+  lastProjects.map((project) => (
+    <>
+      <HorizontalCard
+        title={project.data.title}
+        img={project.data.heroImage}
+        desc={project.data.description}
+        url={project.data.url}
+        rol={project.data.rol}
+        badge={project.data.badge}
+      />
+      <div class="divider my-0" />
+    </>
+  ))
+}

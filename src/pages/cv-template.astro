@@ -1,5 +1,8 @@
 ---
+import PerfilTemp from "@/components/cv/PerfilTemp.astro";
 import SkillsTemplate from "@/components/SkillsTemplate.astro";
+import ExperienciaLabTemp from "@/components/cv/ExperienciaLabTemp.astro";
+import InformacionEstudios from "@/components/cv/InformacionEstudios.astro";
 import '../styles/global.css'
 ---
 
@@ -27,106 +30,14 @@ import '../styles/global.css'
   </head>
   <body class="bg-gray-100">
     <div class="container mx-auto px-4 py-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <h1 class="text-3xl font-bold text-center mb-2">FRANCISCO J. THIELEN G.</h1>
-          <p class="text-center text-gray-600 mb-2">
-            Desarrollador de Software
-          </p>
-          <div class="text-center text-gray-600 mb-2">
-            <a href="https://github.com/FranciscoJTHG" class="hover:underline"
-              >GitHub</a
-            > |
-            <a
-              href="https://www.linkedin.com/in/francisco-thielen-ingeniero-software/"
-              class="hover:underline">LinkedIn</a
-            >
-            <!-- <a
-              href="mailto:Fran_thielengaravito@hotmail.com"
-              class="hover:underline">Email</a
-            > -->
-          </div>
-          <p class="text-center text-gray-600 mb-2">
-            38 años | Monterrey, México
-          </p>
-          <div class="bg-white p-6 rounded-lg shadow-md">
-            <h2 class="text-xl font-bold mb-2">Perfil</h2>
-            <p class="text-gray-700">
-              Experiencia en diseño, desarrollo y mantenimiento de sistemas. Especializado en backend y bases de
-              datos, mi objetivo principal es contribuir al logro de metas estratégicas mediante el desarrollo de soluciones innovadoras, como la implementación de arquitecturas backend escalables que soporten un alto volumen de usuarios, la optimización de bases de datos para reducir tiempos de respuesta, o el diseño de herramientas internas que automatizan procesos clave, ahorrando tiempo y recursos.
-              <br><br>
-              También, cuento con experiencia en la participación y liderazgo de proyectos, utilizando metodologías ágiles como Scrum y Kanban para garantizar una gestión eficiente y adaptativa. Estas metodologías me han permitido priorizar funcionalidades clave, entregar incrementos de valor en ciclos cortos (MVP), y ajustar rápidamente el producto en función del feedback del cliente y las necesidades del negocio. Este enfoque asegura un desarrollo iterativo y colaborativo, maximizando el impacto desde las primeras etapas del proyecto.
-            </p>
-          </div>
-          <!-- <Skills /> -->
+          <PerfilTemp />
           <SkillsTemplate />
         </div>
         <div>
-          <div class="bg-white p-6 rounded-lg shadow-md mb-4">
-            <h2 class="text-xl font-bold mb-4">Experiencia Laboral</h2>
-            <div class="mb-4">
-                <h3 class="font-bold">2023 - Actual</h3>
-                <p class="font-bold">Backend Software Engineer - ISP Cloud Services, Inc</p>
-                <ul class="list-disc list-inside">
-                    <li>Diseñar y mantener bases de datos SQL y NoSQL.</li>
-                    <li>Desarrollar API's RESTful para integración de sistemas.</li>
-                    <li>Implementar lógica de negocio en aplicaciones empresariales.</li>
-                </ul>
-            </div>
-            <div class="mb-4">
-                <h3 class="font-bold">2021-2023</h3>
-                <p class="font-bold">Ingeniero de Software - Bancaribe</p>
-                <ul class="list-disc list-inside">
-                    <li>Actividades de soporte técnico y mantenimiento de sistemas.</li>
-                    <li>Aplicación de controles de cambio y actualizaciones de software.</li>
-                    <li>Desarrollo de nuevas funcionalidades para aplicaciones internas.</li>
-                </ul>
-            </div>
-            <div class="mb-4">
-                <h3 class="font-bold">2020-2021</h3>
-                <p class="font-bold">Desarrollador Web - AionDev (Proyectos)</p>
-                <ul class="list-disc list-inside">
-                    <li>Desarrollo de aplicaciones web utilizando tecnologías modernas.</li>
-                    <li>Colaboración en proyectos de desarrollo ágil.</li>
-                </ul>
-            </div>
-            <div class="mb-4">
-                <h3 class="font-bold">2017-2020</h3>
-                <p class="font-bold">Analista de Desarrollo Tecnológico – SIGIS</p>
-                <ul class="list-disc list-inside">
-                    <li>Desarrollo de aplicaciones utilizando lenguajes como Java y JavaScript.</li>
-                    <li>Realización de actualizaciones y mejoras en sistemas existentes.</li>
-                    <li>Manipulación y desarrollo de rutinas en bases de datos.</li>
-                </ul>
-            </div>
-          </div>
-          <!-- <InformacionEstudios /> -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 page-break">
-            <div class="bg-white p-3 rounded-lg shadow-md mt-8">
-              <h2 class="text-xl font-bold mb-4">Información Académica:</h2>
-              <div class="mb-2">
-                  <p class="font-bold text-base">Ingeniería en Sistemas | 2022</p>
-                  <p class="text-sm">Universidad Nacional Experimental Simón Rodríguez</p>
-              </div>
-              <div class="mb-2">
-                  <p class="font-bold text-base">T.S.U Informática | 2010</p>
-                  <p class="text-sm">Instituto Universitario de Tecnología Venezuela</p>
-              </div>
-            </div>
-            <div class="bg-white p-3 rounded-lg shadow-md mt-8">
-              <h2 class="text-xl font-bold mb-4">Formación Adicional:</h2>
-              <ul class="list-disc list-inside">
-                  <li class="text-sm">Bootcamp Back End Java | 2024</li>
-                  <li class="text-sm">Curso ACL Robotics | 2022</li>
-                  <li class="text-sm">Diplomado en Front End Web Developer | 2022</li>
-                  <li class="text-sm">Diplomado en Back End Web Developer | 2022</li>
-                  <li class="text-sm">Diplomado en Gestión de Base de Datos | 2019</li>
-                  <li class="text-sm">Especialización en Desarrollo Web | 2017</li>
-                  <li class="text-sm">Preparación Certificación ISTQB | 2016</li>
-                  <li class="text-sm">Diplomado Gerencia de Proyectos | 2012</li>
-              </ul>
-            </div>
-          </div>
+          <ExperienciaLabTemp />
+          <InformacionEstudios pageBreak={true} customClass="bg-white p-3 rounded-lg shadow-md mt-8"/>
         </div>
       </div>
     </div>

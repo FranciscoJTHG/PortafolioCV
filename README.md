@@ -1,15 +1,16 @@
 # Portafolio Personal
 
-Este proyecto es un portafolio personal que me permitió profundizar en el funcionamiento del framework Astro al realizar adecuaciones personalizadas. Está diseñado para mostrar mis habilidades y proyectos personales, tambien se puede ejecutar fácilmente por medio de Docker para entornos de desarrollo y producción.
+Proyecto personal que me permitió profundizar en el funcionamiento del framework Astro al realizar adecuaciones personalizadas a una plantilla. Está diseñado para mostrar mis habilidades, proyectos personales y sintesis curricular. Se puede ejecutar fácilmente por medio de Docker para entornos de desarrollo y producción.
 
 ## Características
 
-*   **Portafolio de Proyectos**: Muestra tus proyectos con descripciones detalladas y enlaces.
+*   **Portafolio de Proyectos**: Muestra de proyectos con descripciones detalladas y enlaces.
 <!-- *   **Blog Personal**: Comparte tus conocimientos y experiencias a través de artículos de blog. -->
-*   **Sección de CV/Currículum**: Presenta tu experiencia profesional y habilidades de manera clara.
+*   **Sección de CV/Currículum**: Presentar experiencia profesional y habilidades de manera clara.
 <!-- *   **Tienda (Opcional)**: Integración para mostrar y vender productos digitales. -->
-*   **Generación de PDF del CV**: Genera automáticamente una versión en PDF de tu CV.
-*   **Diseño Responsivo**: Adaptado para verse bien en cualquier dispositivo.
+*   **Generación de PDF del CV**: Generación automática de una versión en PDF del CV. Para asegurar la compatibilidad en diferentes entornos (local y Docker), el proceso de construcción incluye la descarga de una versión de Chromium compatible con Puppeteer.
+*   **Formulario de Contacto con Web3Forms**: Envíar mensajes directamente desde el sitio web utilizando la APi de Web3Forms.
+*   **Diseño Responsivo**: Diseño adaptado para verse bien en distintos dispositivo.
 <!-- *   **Optimización SEO**: Construido con las mejores prácticas para motores de búsqueda. -->
 *   **Rendimiento Rápido**: Aprovecha la arquitectura de islas de Astro para una carga rápida.
 *   **Temas Personalizables**: Fácil cambio de temas gracias a DaisyUI.
@@ -194,10 +195,12 @@ Puedes desplegar tu sitio en cualquier servicio de alojamiento estático (Vercel
 
 Astrofy está bajo la licencia MIT — consulta el archivo [LICENSE](https://github.com/manuelernestog/astrofy/blob/main/LICENSE) para más detalles.
 
-## Contribuidores
+Visualización de la plantilla origina: https://astrofy-template.netlify.app/
+
+<!-- ## Contribuidores
 
 <a href="https://github.com/manuelernestog/astrofy/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=manuelernestog/astrofy" />
 </a>
 
-Hecho con [contrib.rocks](https://contrib.rocks).
+Hecho con [contrib.rocks](https://contrib.rocks). -->

@@ -38,7 +38,6 @@ const generatePDF = async () => {
     console.log('Lanzando navegador (Puppeteer)...');
     browser = await puppeteer.launch({
       headless: true,
-      executablePath: '/usr/bin/chromium',
       args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
     });
 
@@ -46,7 +45,7 @@ const generatePDF = async () => {
 
     console.log(`Cargando HTML desde: ${HTML_PATH}`);
     const htmlContent = await fs.readFile(HTML_PATH, 'utf8');
-    
+
     await page.setContent(htmlContent, {
       waitUntil: 'networkidle0',
     });
@@ -58,10 +57,10 @@ const generatePDF = async () => {
       format: 'A4',
       printBackground: true,
       margin: {
-        top: '2mm',
-        right: '2mm',
-        bottom: '2mm',
-        left: '2mm',
+        top: '1mm',
+        right: '1mm',
+        bottom: '1mm',
+        left: '1mm',
       },
       preferCSSPageSize: true,
     });
