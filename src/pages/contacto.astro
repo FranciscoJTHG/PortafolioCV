@@ -45,8 +45,7 @@ const className = Object.values(clasButton).join(' ');
     </p>
 
     <form id="contactForm" class="space-y-6 bg-base-100 p-8 rounded-lg shadow-lg">
-      <input type="hidden" name="access_key" value="3a752949-743f-4cfd-ac47-e6bffc4a6159">
-      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_botpoison" value="" />
       <div id="formMessages" class="mt-4 text-center"></div>
       <div>
         <label for="name" class="block text-sm font-medium">Nombre completo</label>
@@ -102,28 +101,30 @@ const className = Object.values(clasButton).join(' ');
   form.addEventListener('submit', async (event) => {
     event.preventDefault(); // Prevent default form submission
 
-    const formData = new FormData(form);
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
-
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      // Obtener token de Botpoison
+      const { solution } = await window.botpoison.challenge();
+      
+      // Crear un objeto FormData con los datos del formulario
+      const formData = new FormData(form);
+      // Agregar el token de Botpoison
+      formData.append('_botpoison', solution);
+      
+      // Enviar formulario usando Formspree
+      const response = await fetch('https://submit-form.com/7wrfTBhYa', {
         method: 'POST',
+        body: formData,
         headers: {
-          'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: json,
       });
 
-      const result = await response.json();
-
-      if (result.success) {
+      if (response.ok) {
         formMessages.innerHTML = '<p class="text-green-600">¡Mensaje enviado con éxito! Te responderé pronto.</p>';
         form.reset(); // Clear the form
       } else {
         formMessages.innerHTML = '<p class="text-red-600">Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.</p>';
-        console.error('Web3Forms error:', result.message);
+        console.error('Formspree error:', response.statusText);
       }
     } catch (error) {
       formMessages.innerHTML = '<p class="text-red-600">Hubo un error de red. Por favor, verifica tu conexión e inténtalo de nuevo.</p>';

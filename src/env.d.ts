@@ -17,3 +17,13 @@ interface ImportMetaEnv {
     readonly PUBLIC_API_URL: string;
     // Añade más variables según necesites
 }
+
+// Tipos para Botpoison
+interface Window {
+    botpoison: Botpoison;
+}
+
+declare class Botpoison {
+    constructor(options: { publicKey: string });
+    challenge(): Promise<{ solution: string }>;
+}
