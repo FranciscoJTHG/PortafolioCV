@@ -6,10 +6,10 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://astrofy-template.netlify.app',
+  site: 'https://fjthielengportafolio.up.railway.app',
   integrations: [
-    mdx(), 
-    sitemap(), 
+    mdx(),
+    sitemap(),
     tailwind(),
     icon()
   ],
