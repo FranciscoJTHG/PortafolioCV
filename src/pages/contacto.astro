@@ -44,7 +44,7 @@ const className = Object.values(clasButton).join(' ');
       Estoy abierto a nuevas oportunidades laborales y proyectos de colaboración. Si mi perfil te resulta interesante, no dudes en ponerte en contacto.
     </p>
 
-    <form id="contactForm" class="space-y-6 bg-base-100 p-8 rounded-lg shadow-lg">
+    <form id="contactForm" method="POST" class="space-y-6 bg-base-100 p-8 rounded-lg shadow-lg">
       <div id="formMessages" class="mt-4 text-center"></div>
       <div>
         <label for="name" class="block text-sm font-medium">Nombre completo</label>
@@ -96,33 +96,44 @@ const className = Object.values(clasButton).join(' ');
 <script is:inline>
   const form = document.getElementById('contactForm');
   const formMessages = document.getElementById('formMessages');
+  const formsparkUrl = 'https://submit-form.com/7wrfTBhYa';
 
   form.addEventListener('submit', async (event) => {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault();
+    formMessages.innerHTML = ''; // Clear previous messages
+    const submitButton = form.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.textContent = 'Enviando...';
+
+    // Convert FormData to a plain JavaScript object
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
 
     try {
-      // Crear un objeto FormData con los datos del formulario
-      const formData = new FormData(form);
-      
-      // Enviar formulario usando Formspree
-      const response = await fetch('https://submit-form.com/7wrfTBhYa', {
+      const response = await fetch(formsparkUrl, {
         method: 'POST',
-        body: formData,
+        // Send the data as FormData (URL encoded)
+        body: new URLSearchParams(data),
         headers: {
-          'Accept': 'application/json'
+          'Accept': 'application/json',
         },
       });
 
+      const result = await response.json();
+
       if (response.ok) {
         formMessages.innerHTML = '<p class="text-green-600">¡Mensaje enviado con éxito! Te responderé pronto.</p>';
-        form.reset(); // Clear the form
+        form.reset();
       } else {
-        formMessages.innerHTML = '<p class="text-red-600">Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.</p>';
-        console.error('Formspree error:', response.statusText);
+        formMessages.innerHTML = `<p class="text-red-600">Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.</p>`;
+        console.error('Formspark server error:', result);
       }
     } catch (error) {
       formMessages.innerHTML = '<p class="text-red-600">Hubo un error de red. Por favor, verifica tu conexión e inténtalo de nuevo.</p>';
-      console.error('Fetch error:', error);
+      console.error('Network or parsing error:', error);
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Enviar Mensaje';
     }
   });
 </script>
