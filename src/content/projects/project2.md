@@ -1,10 +1,11 @@
 ---
-title: "Demo Project 2"
-description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-url: "#"
-pubDate: "Sep 11 2022"
-heroImage: "/post_img.webp"
-rol: "Backend"
+title: "Resumen de Videos"
+description: "Web app que permite procesar la URL de un video de YouTube para generar un resumen, traducciones (inglés y español) y una lista de capítulos."
+url: "https://github.com/FranciscoJTHG/resumenVideos"
+pubDate: "Jul 11 2025"
+heroImage: "/resumenVid.png"
+rol: "Full-stack"
+badge: "NEW"
 ---
 
 <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
