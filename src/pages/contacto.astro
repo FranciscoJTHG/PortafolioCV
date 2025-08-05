@@ -45,7 +45,6 @@ const className = Object.values(clasButton).join(' ');
     </p>
 
     <form id="contactForm" class="space-y-6 bg-base-100 p-8 rounded-lg shadow-lg">
-      <input type="hidden" name="_botpoison" value="" />
       <div id="formMessages" class="mt-4 text-center"></div>
       <div>
         <label for="name" class="block text-sm font-medium">Nombre completo</label>
@@ -102,13 +101,8 @@ const className = Object.values(clasButton).join(' ');
     event.preventDefault(); // Prevent default form submission
 
     try {
-      // Obtener token de Botpoison
-      const { solution } = await window.botpoison.challenge();
-      
       // Crear un objeto FormData con los datos del formulario
       const formData = new FormData(form);
-      // Agregar el token de Botpoison
-      formData.append('_botpoison', solution);
       
       // Enviar formulario usando Formspree
       const response = await fetch('https://submit-form.com/7wrfTBhYa', {

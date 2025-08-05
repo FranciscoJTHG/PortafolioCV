@@ -37,20 +37,3 @@ const { title, description, image, ogType = 'website' } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <!-- <meta property="twitter:image" content={new URL(image, Astro.url)} /> -->
-
-<!-- Botpoison script -->
-<!--
-  TODO: Add your public key from botpoison.com to make the form work.
--->
-<script src="https://unpkg.com/@botpoison/browser" async></script>
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', function() {
-    if (typeof Botpoison === 'undefined') {
-      console.error('Botpoison script has not loaded yet.');
-      return;
-    }
-    window.botpoison = new Botpoison({
-      publicKey: 'form',
-    });
-  });
-</script>
