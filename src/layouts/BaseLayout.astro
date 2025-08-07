@@ -8,7 +8,7 @@ import { ViewTransitions } from "astro:transitions";
 import { SITE_TITLE, SITE_DESCRIPTION, TRANSITION_API } from "../config";
 
 const {
-  // image,
+  image,
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
   includeSidebar = true,
@@ -23,6 +23,7 @@ const {
     <BaseHead
       title={title}
       description={description}
+      image={image}
     />
     <script is:inline>
       // Aplicar el tema inicial desde localStorage
