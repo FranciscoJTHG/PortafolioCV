@@ -40,7 +40,7 @@ const {
 
       document.addEventListener("astro:after-swap", applyTheme);
     </script>
-    {TRANSITION_API && <ViewTransitions />}
+    {TRANSITION_API && <ViewTransitions fallback="swap" />}
   </head>
   <body>
     <div class="bg-base-100 drawer lg:drawer-open">
