@@ -14,4 +14,5 @@ export default defineConfig({
     tailwind(),
     icon()
   ],
+  prefetch: false,
 });
