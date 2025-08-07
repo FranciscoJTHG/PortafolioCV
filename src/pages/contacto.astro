@@ -33,7 +33,6 @@ const clasInput = [
 ];
 
 const className = Object.values(clasButton).join(' ');
-// const classInput = clasInput.join(' ');
 
 ---
 
@@ -105,14 +104,12 @@ const className = Object.values(clasButton).join(' ');
     submitButton.disabled = true;
     submitButton.textContent = 'Enviando...';
 
-    // Convert FormData to a plain JavaScript object
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
 
     try {
       const response = await fetch(formsparkUrl, {
         method: 'POST',
-        // Send the data as FormData (URL encoded)
         body: new URLSearchParams(data),
         headers: {
           'Accept': 'application/json',

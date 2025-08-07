@@ -9,7 +9,7 @@ Proyecto personal que me permitió profundizar en el funcionamiento del framewor
 *   **Sección de CV/Currículum**: Presentar experiencia profesional y habilidades de manera clara.
 <!-- *   **Tienda (Opcional)**: Integración para mostrar y vender productos digitales. -->
 *   **Generación de PDF del CV**: Generación automática de una versión en PDF del CV. Para asegurar la compatibilidad en diferentes entornos (local y Docker), el proceso de construcción incluye la descarga de una versión de Chromium compatible con Puppeteer.
-*   **Formulario de Contacto con Web3Forms**: Envíar mensajes directamente desde el sitio web utilizando la APi de Web3Forms.
+*   **Formulario de Contacto con Formspark**: Envíar mensajes directamente desde el sitio web utilizando la API de Formspark.
 *   **Diseño Responsivo**: Diseño adaptado para verse bien en distintos dispositivo.
 <!-- *   **Optimización SEO**: Construido con las mejores prácticas para motores de búsqueda. -->
 *   **Rendimiento Rápido**: Aprovecha la arquitectura de islas de Astro para una carga rápida.

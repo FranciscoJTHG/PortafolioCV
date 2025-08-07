@@ -8,12 +8,12 @@ import { ViewTransitions } from "astro:transitions";
 import { SITE_TITLE, SITE_DESCRIPTION, TRANSITION_API } from "../config";
 
 const {
-  image,
+  // image,
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
   includeSidebar = true,
   sideBarActiveItemID,
-  ogType,
+  // ogType,
 } = Astro.props;
 ---
 
@@ -23,8 +23,6 @@ const {
     <BaseHead
       title={title}
       description={description}
-      image={image}
-      ogType={ogType}
     />
     <script is:inline>
       // Aplicar el tema inicial desde localStorage
@@ -37,10 +35,8 @@ const {
         }
       };
 
-      // Ejecutar en la carga inicial
       applyTheme();
 
-      // Ejecutar después de cada transición de página
       document.addEventListener("astro:after-swap", applyTheme);
     </script>
     {TRANSITION_API && <ViewTransitions />}
