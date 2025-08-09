@@ -1,12 +1,12 @@
 ---
-title: "roxs-voting-app"
-description: "App de votación distribuida simple que demuestra el uso de múltiples servicios orquestados con Docker Compose."
-url: "#"
-pubDate: "Jul 12 2025"
-heroImage: "/appVoting.png"
-# badge: "Demo badge"
+title: "roxs-voting-app-vagrant"
+description: "Web app automatizada para el despliegue y configuración del entorno, se utilizan tecnologías como Vagrant para la virtualización, Ansible para el aprovisionamiento y Shell Bash para la ejecución de scripts."
+url: https://github.com/FranciscoJTHG/roxs-voting-app-vagrant
+pubDate: "Jul 06 2025"
+heroImage: "/interfaz.png"
 rol: "DevOps"
-# tags: ["rust","tokio"]
+# badge: "NEW"
+# tags: ["tokio"]
 ---
 
 <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor

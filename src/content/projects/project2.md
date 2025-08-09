@@ -1,8 +1,8 @@
 ---
 title: "Resumen de Videos"
-description: "Web app que permite procesar la URL de un video de YouTube para generar un resumen, traducciones (inglés y español) y una lista de capítulos."
+description: "Web app que permite procesar la URL de un video de YouTube para generar un resumen, traducciones (inglés y español) y una lista de capítulos, consta de un backend en Node.js que interactúa con AWS S3 y Amazon Transcribe."
 url: "https://github.com/FranciscoJTHG/resumenVideos"
-pubDate: "Jul 11 2025"
+pubDate: "Jul 20 2025"
 heroImage: "/resumenVid.png"
 rol: "Full-stack"
 badge: "NEW"
