@@ -1,7 +1,7 @@
 ---
 title: "roxs-voting-app"
 description: "App de votación distribuida simple que demuestra el uso de múltiples servicios orquestados con Docker Compose."
-url: "#"
+url: https://github.com/FranciscoJTHG/roxs-voting-app
 pubDate: "Jul 12 2025"
 heroImage: "/appVoting.png"
 # badge: "Demo badge"
