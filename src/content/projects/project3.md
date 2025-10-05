@@ -1,11 +1,11 @@
 ---
-title: "roxs-voting-app"
-description: "App de votación distribuida simple que demuestra el uso de múltiples servicios orquestados con Docker Compose."
-url: https://github.com/FranciscoJTHG/roxs-voting-app
-pubDate: "Jul 12 2025"
-heroImage: "/appVoting.png"
+title: "medicApp"
+description: "(MVP) Web app de telemedicina que permite la gestión de citas médicas, consultas virtuales y seguimiento de pacientes. Sistema completo con backend en Spring Boot, frontend en React y despliegue en Docker"
+url: https://github.com/FranciscoJTHG/medicApp
+pubDate: "Nov 12 2024"
+heroImage: "/mediApp.png"
 # badge: "Demo badge"
-rol: "DevOps"
+rol: "Full-stack"
 # tags: ["rust","tokio"]
 ---
 

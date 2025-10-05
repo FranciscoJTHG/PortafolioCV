@@ -33,6 +33,9 @@ RUN pnpm generatePdf
 # Usa una imagen de Nginx ligera
 FROM nginx:1.27-alpine
 
+# Instalar curl para health checks
+RUN apk add --no-cache curl
+
 # Copia la configuración de Nginx personalizada
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 

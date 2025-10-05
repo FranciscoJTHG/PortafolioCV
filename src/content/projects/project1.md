@@ -1,6 +1,6 @@
 ---
 title: "CreaSoft"
-description: "Web app que utiliza inteligencia artificial para predecir el éxito potencial de una película antes de su estreno."
+description: "Web app que utiliza un modelo de clasificación binaria con una Red Neuronal Feed-Forward (MLP) para predecir el éxito potencial de una película antes de su estreno, construida con NestJS(Node.js/TypeScript) y su despliegue en Docker"
 url: https://github.com/FranciscoJTHG/creaSoft
 pubDate: "Mar 10 2025"
 heroImage: "/creaSoft.png"
