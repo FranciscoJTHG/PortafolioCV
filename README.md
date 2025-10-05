@@ -251,4 +251,4 @@ Visualización de la plantilla origina: https://astrofy-template.netlify.app/
   <img src="https://contrib.rocks/image?repo=manuelernestog/astrofy" />
 </a>
 
-Hecho con [contrib.rocks](https://contrib.rocks). -->
+Hecho con [contrib.rocks](https://contrib.rocks)... -->
