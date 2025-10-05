@@ -24,6 +24,7 @@ Proyecto personal que me permitió profundizar en el funcionamiento del framewor
 *   [pnpm](https://pnpm.io/) - Gestor de paquetes rápido y eficiente.
 *   [Docker](https://www.docker.com/) - Plataforma para desarrollar, enviar y ejecutar aplicaciones en contenedores.
 *   [Nginx](https://www.nginx.com/) - Servidor web ligero y de alto rendimiento (para producción).
+*   [Health Checks](https://docs.docker.com/engine/reference/builder/#healthcheck) - Sistema de monitoreo para verificar el estado del contenedor en producción.
 
 ## Ejecución del Proyecto con Docker
 
@@ -55,13 +56,47 @@ Para iniciar el proyecto en modo de desarrollo con recarga en caliente y mapeo d
 
 Para construir y ejecutar el proyecto en un entorno de producción, utilizando Nginx para servir los archivos estáticos:
 
-1.  **Construye e inicia los servicios de producción**: 
+1.  **Construye e inicia los servicios de producción**:
     ```bash
     docker-compose -f docker-compose.yml up --build -d
     ```
     Esto construirá la imagen `portfolio_prod`, generará el sitio estático y el PDF del CV, y luego servirá la aplicación usando Nginx en segundo plano.
 
 2.  **Accede a la aplicación**: Abre tu navegador y ve a `http://localhost:80`.
+
+### 3. Monitoreo de Salud (Health Checks)
+
+El entorno de producción incluye un sistema de monitoreo de salud que verifica automáticamente que el contenedor esté funcionando correctamente:
+
+**Verificación del estado de salud:**
+
+```bash
+# Ver el estado del contenedor incluyendo health
+docker ps
+
+# Ver información detallada del health check
+docker inspect portfolio_prod
+
+# Ver el estado de salud específico
+docker inspect --format='{{.State.Health.Status}}' portfolio_prod
+
+# Ver el historial completo de health checks
+docker inspect --format='{{json .State.Health.Log}}' portfolio_prod | jq '.'
+```
+
+**Estados posibles del Health Check:**
+- 🟢 **healthy**: El contenedor está funcionando correctamente
+- 🟡 **starting**: El contenedor está iniciando (período de gracia de 40s)
+- 🔴 **unhealthy**: El contenedor ha fallado los checks consecutivos
+- ⚪ **none**: No hay health check configurado
+
+**Configuración del Health Check:**
+- **Intervalo**: 30 segundos entre cada verificación
+- **Timeout**: 10 segundos de espera máxima por verificación
+- **Reintentos**: 3 fallos consecutivos antes de marcar como unhealthy
+- **Período de gracia**: 40 segundos antes de comenzar las verificaciones
+
+El health check verifica que el servidor web esté respondiendo correctamente en el puerto 80, garantizando que el sitio sea accesible para los usuarios.
 
 ### Comandos Útiles de Docker Compose
 
@@ -77,11 +112,24 @@ Para construir y ejecutar el proyecto en un entorno de producción, utilizando N
     # o para producción
     docker-compose -f docker-compose.yml build
     ```
-*   **Ver logs de los contenedores**: 
+*   **Ver logs de los contenedores**:
     ```bash
     docker-compose -f docker-compose.dev.yml logs -f
     # o para producción
     docker-compose -f docker-compose.yml logs -f
+    ```
+*   **Monitorear health checks en tiempo real**:
+    ```bash
+    # Ver eventos de Docker incluyendo health checks
+    docker events --filter container=portfolio_prod
+    
+    # Script simple para monitoreo continuo
+    while true; do
+        STATUS=$(docker inspect --format='{{.State.Health.Status}}' portfolio_prod 2>/dev/null)
+        TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+        echo "[$TIMESTAMP] Health Status: $STATUS"
+        sleep 30
+    done
     ```
 
 ## Estructura del Proyecto
