@@ -1,13 +1,13 @@
-
 services:
   portfolio:
     build:
       context: .
       dockerfile: Dockerfile
+    image: portfolio-cv:latest
     container_name: portfolio_prod
     ports:
       - "80:80"
-    restart: always
+    restart: unless-stopped
     networks:
       - portfolio-net
     healthcheck:
@@ -16,6 +16,19 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 128M
+        reservations:
+          cpus: '0.1'
+          memory: 64M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
 networks:
   portfolio-net:

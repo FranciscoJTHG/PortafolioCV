@@ -4,10 +4,13 @@
 
 <button
   id="theme-toggle"
+  type="button"
   aria-label="Cambiar tema"
+  aria-pressed="false"
   class="btn btn-md btn-ghost"
 >
   <svg
+    data-icon="sun"
     xmlns="http://www.w3.org/2000/svg"
     width="24"
     height="24"
@@ -16,33 +19,65 @@
     stroke="currentColor"
     stroke-width="2"
   >
-    <circle class="hidden dark:block" cx="12" cy="12" r="4"></circle>
-    <path
-      class="hidden dark:block"
-      d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
-    ></path>
+    <circle cx="12" cy="12" r="4"></circle>
+    <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+  </svg>
+  <svg
+    data-icon="moon"
+    class="hidden"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+  >
+    <path d="M21 12.79A9 9 0 1 1 11.21 3c0 .31 0 .62.02.93a7 7 0 0 0 8.84 8.84c.31.02.62.03.93.02z"></path>
   </svg>
 </button>
 
-<script is:inline transition:persist>
+<script is:inline>
+  (function () {
+    const getCurrentTheme = () => document.documentElement.getAttribute("data-theme") || "night";
 
-  function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute("data-theme") || "lofi";
-    const newTheme = currentTheme === "lofi" ? "night" : "lofi";
+    // Sincroniza el estado del botón con el tema actual
+    const syncButtonState = (button) => {
+      const isNight = getCurrentTheme() === "night";
+      button.setAttribute("aria-pressed", String(isNight));
 
-    document.documentElement.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-  }
+      const sunIcon = button.querySelector('[data-icon="sun"]');
+      const moonIcon = button.querySelector('[data-icon="moon"]');
 
-  function setupThemeToggle() {
-    const themeToggle = document.getElementById("theme-toggle");
+      sunIcon?.classList.toggle("hidden", isNight);
+      moonIcon?.classList.toggle("hidden", !isNight);
+    };
 
-    if (themeToggle) {
-      themeToggle.removeEventListener("click", toggleTheme);
-      themeToggle.addEventListener("click", toggleTheme);
+    // Vincula el evento de clic al botón de cambio de tema
+    const bindToggle = () => {
+      const button = document.getElementById("theme-toggle");
+      if (!button || button.dataset.bound === "true")
+        return;
+
+      button.dataset.bound = "true";
+
+      // Cambia el tema al hacer clic en el botón
+      button.addEventListener("click", () => {
+        const nextTheme = getCurrentTheme() === "lofi" ? "night" : "lofi";
+        document.documentElement.setAttribute("data-theme", nextTheme);
+        localStorage.setItem("theme", nextTheme);
+        syncButtonState(button);
+      });
+
+      syncButtonState(button);
+    };
+
+    bindToggle();
+
+    // Asegura que el botón se vuelva a vincular después de cada actualización de Astro
+    if (!window.__themeToggleAfterSwapBound) {
+      window.__themeToggleAfterSwapBound = true;
+      document.addEventListener("astro:after-swap", bindToggle);
     }
-  }
-
-  document.addEventListener("DOMContentLoaded", setupThemeToggle);
-  document.addEventListener("astro:page-load", setupThemeToggle);
+  })();
 </script>

@@ -1,6 +1,39 @@
-.DS_Store
+# Dependencies (reinstalled in container)
 node_modules
+.pnpm-store
+.pnpm
+
+# Build output
 dist
+.astro
+
+# Version control
 .git
 .github
-.vsc
+
+# Editor & tools
+.vscode
+.editorconfig
+.eslintrc.json
+.gemini
+
+# Environment
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Documentación interna
+*.md
+
+# Dev-only files
+Dockerfile.dev
+docker-compose.dev.yml
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*

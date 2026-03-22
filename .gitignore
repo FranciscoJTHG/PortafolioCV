@@ -1,8 +1,11 @@
 # build output
 dist/
 .cache
+
 # dependencies
 node_modules/
+.pnpm-store/
+.pnpm/
 
 # logs
 npm-debug.log*
@@ -10,13 +13,21 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-
 # environment variables
 .env
-.env.production
+.env.*
 
 # macOS-specific files
 .DS_Store
 
+# Windows-specific files
+Thumbs.db
+desktop.ini
+
 # Astro
 .astro/
+
+# Editor
+.vscode/
+.editorconfig
+
